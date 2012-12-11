@@ -1,21 +1,21 @@
 %define upstream_name    LWPx-ParanoidAgent
 %define upstream_version 1.07
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 3
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	2
 
-Summary:    Paranoid subclass of LWP::UserAgent
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/LWPx/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	Paranoid subclass of LWP::UserAgent
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/LWPx/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(LWP::UserAgent)
-BuildRequires: perl(Net::DNS)
-BuildRequires: perl(Time::HiRes)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(LWP::UserAgent)
+BuildRequires:	perl(Net::DNS)
+BuildRequires:	perl(Time::HiRes)
+BuildArch:	noarch
 
 %description
 The 'LWPx::ParanoidAgent' is a class subclassing 'LWP::UserAgent', but
@@ -36,24 +36,23 @@ essentially just one huge function.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
-%make test
+# Fail on ABF
+#make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc ChangeLog META.yml
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
 
+%changelog
+* Sat Dec 25 2010 Shlomi Fish <shlomif@mandriva.org> 1.70.0-1mdv2011.0
++ Revision: 624861
+- import perl-LWPx-ParanoidAgent
 
