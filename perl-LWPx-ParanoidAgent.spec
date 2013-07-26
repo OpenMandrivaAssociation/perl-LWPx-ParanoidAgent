@@ -1,15 +1,15 @@
 %define upstream_name    LWPx-ParanoidAgent
-%define upstream_version 1.07
+%define upstream_version 1.09
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	2
+Version:	%perl_convert_version 1.09
+Release:	1
 
 Summary:	Paranoid subclass of LWP::UserAgent
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/LWPx/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/LWPx/LWPx-ParanoidAgent-1.09.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(LWP::UserAgent)
@@ -55,4 +55,5 @@ perl Makefile.PL INSTALLDIRS=vendor
 * Sat Dec 25 2010 Shlomi Fish <shlomif@mandriva.org> 1.70.0-1mdv2011.0
 + Revision: 624861
 - import perl-LWPx-ParanoidAgent
+
 

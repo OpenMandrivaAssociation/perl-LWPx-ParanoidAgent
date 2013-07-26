@@ -1,2 +1,4 @@
+removed_sources:
+  LWPx-ParanoidAgent-1.07.tar.gz: 66601e5d9143ac9b894933826b3c8510587cf372
 sources:
-  "LWPx-ParanoidAgent-1.07.tar.gz": 66601e5d9143ac9b894933826b3c8510587cf372
+  LWPx-ParanoidAgent-1.09.tar.gz: 702c4f4759a9e030130c72bad378ff03d10058d8
